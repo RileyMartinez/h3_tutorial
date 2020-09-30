@@ -16,6 +16,11 @@ public class ValidateISBNTest {
 	}
 	
 	@Test
+	public void isbn_numbers_ending_in_an_x_are_valid() {
+		fail();
+	}
+	
+	@Test
 	public void check_an_invalid_ISBN() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("0140449117");
@@ -33,4 +38,5 @@ public class ValidateISBNTest {
 		ValidateISBN validator = new ValidateISBN();
 		validator.checkISBN("helloworld");
 	}
+	
 }
