@@ -3,7 +3,25 @@ package com.virtualpairprogrammers.isbntools;
 public class ValidateISBN {
 	
 	public boolean checkISBN(String isbn) {	
-		if (isbn.length() == 13) return true;
+		if (isbn.length() == 13) {
+			int total = 0;
+			
+			for (int i = 0; i < 13; i++) {
+				if (i % 2 == 0) {
+					total += Character.getNumericValue(isbn.charAt(i));
+				}
+				else {
+					total += Character.getNumericValue(isbn.charAt(i)) * 3;
+				}
+			}
+			if (total % 10 == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
 		if (isbn.length() != 10) {
 			throw new NumberFormatException("ISBN numbers must be 10 digits long");
 		}

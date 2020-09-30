@@ -43,7 +43,6 @@ public class ValidateISBNTest {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("9780135957056");
 		assertFalse(result);
-		fail();
 	}
 	
 	@Test(expected = NumberFormatException.class)
