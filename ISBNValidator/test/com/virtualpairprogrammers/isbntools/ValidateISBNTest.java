@@ -27,4 +27,10 @@ public class ValidateISBNTest {
 		ValidateISBN validator = new ValidateISBN();
 		validator.checkISBN("123456789");
 	}
+	
+	@Test(expected = NumberFormatException.class)
+	public void non_digit_isbns_are_not_allowed() {
+		ValidateISBN validator = new ValidateISBN();
+		validator.checkISBN("helloworld");
+	}
 }
