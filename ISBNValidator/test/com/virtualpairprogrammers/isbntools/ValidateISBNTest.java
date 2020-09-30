@@ -25,7 +25,7 @@ public class ValidateISBNTest {
 	}
 	
 	@Test
-	public void tesn_digit_ISBN_numbers_ending_in_an_X_are_valid() {
+	public void ten_digit_ISBN_numbers_ending_in_an_X_are_valid() {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("012000030X");
 		assertTrue(result);
@@ -36,6 +36,14 @@ public class ValidateISBNTest {
 		ValidateISBN validator = new ValidateISBN();
 		boolean result = validator.checkISBN("0140449117");
 		assertFalse(result);
+	}
+	
+	@Test
+	public void check_an_invalid_13_digit_ISBN() {
+		ValidateISBN validator = new ValidateISBN();
+		boolean result = validator.checkISBN("9780135957056");
+		assertFalse(result);
+		fail();
 	}
 	
 	@Test(expected = NumberFormatException.class)
